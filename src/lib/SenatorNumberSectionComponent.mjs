@@ -1,5 +1,5 @@
 import { numberOfDemocraticSenators, numberOfIndependentSenators, numberOfRepublicanSenators } from "../dataStore.mjs";
-import { createEffect, createElement } from "../../fógra/index.mjs";
+import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
 export default function SenatorNumberSection() {
 	const h3Democrats = createElement("h3", {}, `Democrats : ${numberOfDemocraticSenators()}`);

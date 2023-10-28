@@ -1,4 +1,4 @@
-import { createElement } from "../fógra/index.mjs";
+import { createElement } from "../fógraJS/index.mjs";
 
 import SenatorNumberSection from "./lib/SenatorNumberSectionComponent.mjs";
 import LeadershipRollsSection from "./lib/LeadershipRollsSectionComponent.mjs";
@@ -14,6 +14,7 @@ import {
 	setStateValue,
 	setRankValue,
 } from "./dataStore.mjs";
+
 
 // CREATE TABLE SECTION USING CREATEELEMENT AND CUSTOM COMPONENTS
 const tableSection = createElement(

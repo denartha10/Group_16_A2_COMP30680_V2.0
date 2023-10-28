@@ -1,4 +1,4 @@
-import { createEffect, createElement } from "../../fógra/index.mjs";
+import { createEffect, createElement } from "../../fógraJS/index.mjs";
 import {
 	objectOfSenatorsNamesAndLeadershipRollByParty,
 	listOfSenatorsWithLeadershipRollsWithNameAndParty,

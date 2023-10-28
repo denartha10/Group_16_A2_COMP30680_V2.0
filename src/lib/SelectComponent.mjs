@@ -1,4 +1,4 @@
-import { createEffect, createElement } from "../../fógra/index.mjs";
+import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
 function SelectComponent(listOfOptionsSignal, { nameAndID, classList, bindValue }) {
 	const optionTags = () => listOfOptionsSignal().map((v) => createElement("option", { id: v }, v));
