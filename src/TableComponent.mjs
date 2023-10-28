@@ -1,4 +1,4 @@
-import { filteredDataForTable } from "./dataStore.mjs";
+import { filteredDataForTable, setPopupDisplaySettings } from "./dataStore.mjs";
 import { createEffect, createElement } from "../fógra/index.mjs";
 
 export default function TableComponent() {
@@ -20,7 +20,7 @@ export default function TableComponent() {
             "tr",
             {
               id: trRowObject.osid ?? "",
-              onclick: () => {}
+              onclick: () => {setPopupDisplaySettings({open: true, osid: trRowObject.osid})}
             },
             ...Object.values(trRowObject).map((cellData) =>
               createElement("td", {}, cellData)

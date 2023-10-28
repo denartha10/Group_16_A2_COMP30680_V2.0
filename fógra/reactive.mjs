@@ -1,54 +1,54 @@
 let currentListener = undefined;
 
 function createSignal(initialValue) {
-  let value = initialValue;
-  const subscribers = new Set();
+	let value = initialValue;
+	const subscribers = new Set();
 
-  const getValue = () => {
-    if (currentListener !== undefined) {
-      subscribers.add(currentListener);
-    }
-    return value;
-  };
+	const getValue = () => {
+		if (currentListener !== undefined) {
+			subscribers.add(currentListener);
+		}
+		return value;
+	};
 
-  const setValue = (newValue) => {
-    value = newValue;
-    subscribers.forEach((fn) => fn());
-  };
+	const setValue = (newValue) => {
+		value = newValue;
+		subscribers.forEach((fn) => fn());
+	};
 
-  return [getValue, setValue];
+	return [getValue, setValue];
 }
 
 function createEffect(callback) {
-  currentListener = callback;
-  callback();
-  currentListener = undefined;
+	currentListener = callback;
+	callback();
+	currentListener = undefined;
 }
 
 function createResource(source, fetcher) {
-  const [value, setValue] = createSignal(false);
+	const [value, setValue] = createSignal(false);
 
-  async function runfetcher() {
-    try {
-      setValue("loading");
-      const response = await fetcher(source());
+	async function runfetcher() {
+		try {
+			setValue("loading");
+			const response = await fetcher(source());
 
-      if (response.ok) {
-        const jsonData = await response.json();
-        setValue(jsonData);
-      } else {
-        setValue(false);
-      }
-    } catch (error) {
-      setValue(false);
-    }
-  }
+			if (response.ok) {
+				const jsonData = await response.json();
+				setValue(jsonData);
+			} else {
+				setValue(false);
+			}
+		} catch (error) {
+			setValue(false);
+		}
+	}
 
-  createEffect(() => {
-    runfetcher();
-  });
+	createEffect(() => {
+		runfetcher();
+	});
 
-  return [value];
+	return [value];
 }
 
 export { createSignal, createEffect, createResource };

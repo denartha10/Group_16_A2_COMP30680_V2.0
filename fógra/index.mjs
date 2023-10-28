@@ -1,2 +1,2 @@
-export * from './HTMLGenerator.mjs'
-export * from './reactive.mjs'
+export * from "./HTMLGenerator.mjs";
+export * from "./reactive.mjs";
