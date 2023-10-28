@@ -1,5 +1,5 @@
-import { filteredDataForTable, setPopupDisplaySettings } from "./dataStore.mjs";
-import { createEffect, createElement } from "../fógra/index.mjs";
+import { filteredDataForTable, setPopupDisplaySettings } from "../dataStore.mjs";
+import { createEffect, createElement } from "../../fógra/index.mjs";
 
 export default function TableComponent() {
   const table = createElement("table", { id: "governorTable", onrowclick: () => console.log("hey")  });

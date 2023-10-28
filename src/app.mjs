@@ -1,10 +1,10 @@
 import { createElement } from "../fógra/index.mjs";
 
-import SenatorNumberSection from "./SenatorNumberSectionComponent.mjs";
-import LeadershipRollsSection from "./LeadershipRollsSectionComponent.mjs";
-import CustomSelect from "./SelectComponent.mjs";
-import TableComponent from "./TableComponent.mjs";
-import PopupComponent from "./PopupComponent.mjs";
+import SenatorNumberSection from "./lib/SenatorNumberSectionComponent.mjs";
+import LeadershipRollsSection from "./lib/LeadershipRollsSectionComponent.mjs";
+import CustomSelect from "./lib/SelectComponent.mjs";
+import TableComponent from "./lib/TableComponent.mjs";
+import PopupComponent from "./lib/PopupComponent.mjs";
 
 import {
 	uniqueArrayOfParties,
@@ -40,7 +40,7 @@ const tableSection = createElement(
 
 // ADD SECTION TO THE BODY
 document
-	.getElementById("bodyTag")
+	.getElementById("root")
 	.append(
 		createElement("h1", {}, "Us Senators"),
 		SenatorNumberSection(),

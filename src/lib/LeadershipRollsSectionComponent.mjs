@@ -1,8 +1,8 @@
-import { createEffect, createElement } from "../fógra/index.mjs";
+import { createEffect, createElement } from "../../fógra/index.mjs";
 import {
 	objectOfSenatorsNamesAndLeadershipRollByParty,
 	listOfSenatorsWithLeadershipRollsWithNameAndParty,
-} from "./dataStore.mjs";
+} from "../dataStore.mjs";
 
 const leaderShipPositionLists = () =>
 	Object.entries(objectOfSenatorsNamesAndLeadershipRollByParty()).map(([party, listOfRolesWithNames]) =>
