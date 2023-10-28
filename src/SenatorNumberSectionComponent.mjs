@@ -1,10 +1,9 @@
-import createElement from './HTMLGenerator.mjs'
 import {
   numberOfDemocraticSenators,
   numberOfIndependentSenators,
   numberOfRepublicanSenators,
 } from "./dataStore.mjs";
-import { createEffect } from "../reactive.mjs"
+import { createEffect, createElement } from "../fógra/index.mjs"
 
 export default function SenatorNumberSection(){
     
