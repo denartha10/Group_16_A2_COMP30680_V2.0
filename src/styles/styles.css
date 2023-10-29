@@ -1,131 +1,192 @@
 h1 {
-    text-align: center;
-    margin: 2rem 0;
+	text-align: center;
+	margin: 2rem 0;
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color: #f5f5f5;
-    font-size: 1.2rem;
+body {
+	font-family: "Roboto", sans-serif;
+	padding: 0;
+	margin: 0;
+	background-color: #f5f5f5;
+	font-size: 1.2rem;
 }
 
-h2{
-    border-bottom: 1px solid #caced1;
-    padding-bottom: 0.5rem;
+h2 {
+	border-bottom: 1px solid #caced1;
+	padding-bottom: 0.5rem;
 }
 
 section {
-    padding: 2rem;
+	padding: 2rem;
 }
 
-#LeadershipRolls ul{
+#LeadershipRolls ul {
 }
 
 #floating {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    z-index: 100;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    min-width: 300px;
-    min-height: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	z-index: 100;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	min-width: 300px;
+	min-height: 300px;
 }
 
 #floatingBack {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 99;
 }
-
-
-
 
 #tablesection {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
-#tablesection div{
-    display: flex;
-    justify-content: space-between;
-    gap: 4rem;
-    margin-bottom: 1rem;
+#tablesection div {
+	display: flex;
+	justify-content: space-between;
+	gap: 4rem;
+	margin-bottom: 1rem;
 }
 
-#tablesection table{
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #caced1;
+#tablesection table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #caced1;
 }
 
 #tablesection table td,
-#tablesection table th{
-    text-align: center;
-    padding: 0.5rem;
-    border: 1px solid #caced1;
+#tablesection table th {
+	text-align: center;
+	padding: 0.5rem;
+	border: 1px solid #caced1;
 }
 
-#tablesection table th{
-    background-color: #caced1;
+#tablesection table th {
+	background-color: #caced1;
 }
 
-#tablesection table tr:hover{
-    background-color: #caced1;
-    cursor: pointer;
+#tablesection table tr:hover {
+	background-color: #caced1;
+	cursor: pointer;
 }
 
 /* STOLEN FROM https://blog.logrocket.com/creating-custom-select-dropdown-css/ */
 /* All select and .custom-select stuff */
 
 select {
-    appearance: none;
-    /*  safari  */
-    -webkit-appearance: none;
-    /*  other styles for aesthetics */
-    width: 100%;
-    font-size: 1.15rem;
-    padding: 0.675em 6em 0.675em 1em;
-    background-color: #fff;
-    border: 1px solid #caced1;
-    border-radius: 0.25rem;
-    color: #000;
-    cursor: pointer;
+	appearance: none;
+	/*  safari  */
+	-webkit-appearance: none;
+	/*  other styles for aesthetics */
+	width: 100%;
+	font-size: 1.15rem;
+	padding: 0.675em 6em 0.675em 1em;
+	background-color: #fff;
+	border: 1px solid #caced1;
+	border-radius: 0.25rem;
+	color: #000;
+	cursor: pointer;
 }
 
-
 .custom-select {
-    min-width: 350px;
-    position: relative;
+	min-width: 350px;
+	position: relative;
 }
 
 .custom-select::before,
 .custom-select::after {
-    --size: 0.3rem;
-    content: "";
-    position: absolute;
-    right: 1rem;
-    pointer-events: none;
+	--size: 0.3rem;
+	content: "";
+	position: absolute;
+	right: 1rem;
+	pointer-events: none;
 }
 
 .custom-select::before {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid black;
-    top: 40%;
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-bottom: var(--size) solid black;
+	top: 40%;
 }
 
 .custom-select::after {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-top: var(--size) solid black;
-    top: 55%;
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-top: var(--size) solid black;
+	top: 55%;
+}
+
+#tablesection #senatorGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+#tablesection #senatorGrid div {
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#tablesection #senatorGrid .republican {
+	background-color: #ff8080;
+}
+#tablesection #senatorGrid .democrat {
+	background-color: #80a0ff;
+}
+
+#tablesection #senatorGrid ul {
+	list-style: none;
+	padding: 0;
+}
+
+/* SEARCH BAR */
+input {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	font-size: 1.15rem;
+	padding: 0.675em 6em 0.675em 1em;
+	background-color: #fff;
+	border: 1px solid #caced1;
+	border-radius: 0.25rem;
+	color: #000;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+
+.custom-input {
+	min-width: 350px;
+	position: relative;
+}
+
+.custom-input::before,
+.custom-input::after {
+	--size: 0.3rem;
+	content: "";
+	position: absolute;
+	right: 1rem;
+	pointer-events: none;
+}
+
+.custom-input::before {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-bottom: var(--size) solid black;
+	top: 40%;
+}
+
+.custom-input::after {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-top: var(--size) solid black;
+	top: 55%;
 }

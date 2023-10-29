@@ -2,7 +2,7 @@ import { createSignal, createResource } from "../fógraJS/index.mjs";
 
 // EVERYTHING INSIDE THIS DOCUMENT IS A SIGNAL
 // THINK OF A SIGNAL AS A FUNCTION THAT RETURNS A VALUE
-// WHEN YOU CREATE A SIGNAL YOU SET AN INITIAL VALUE FOR IT AND IT RETURNS AN ARRAY 
+// WHEN YOU CREATE A SIGNAL YOU SET AN INITIAL VALUE FOR IT AND IT RETURNS AN ARRAY
 // THE ARRAY CONTAINS A FUNCTION RETURNING THE CURRENT VALUE () => VAL
 // AND A FUNCTION THAT TAKES A VALUE AS A PARAMETER (VAL) => void
 // I HAVE SPLIT THE FILE INTO SEPERATED PORTIONS EACH CONTAINING DATA FOR A SECTION OF THE PROJECT
@@ -11,25 +11,24 @@ import { createSignal, createResource } from "../fógraJS/index.mjs";
 // TO THAT FUNCTION RERUNNING IT WHEN THE VALUE OF THE SIGNAL IS SET
 // const [a, setA] = createSignal(3)     --a = 3--
 // const b = () => a()*2     --b is 3*2 or 6--
-// 
+//
 // setA(4) --a() is now 4 and b() is now 8. if b was used in the code elsewhere that will be updated too--
-// 
+//
 // THE createResource() IS BASICALLY A SIGNAL BUT ACCEPTS A FUNCTION RETURNING A PROMISE AND ARGUMENTS FOR THAT FETCH FUNCTION
-// IT RETURNS A SIGNAL WHICH IS IN THREE STATES 
+// IT RETURNS A SIGNAL WHICH IS IN THREE STATES
 // "false" - meaning error
 // "loading" - meaning (YOU GUESSED IT) the async function is running
 // Data - the result of Promise<Data> resolving
-
 
 // NOW THAT I HAVE OUTLINED THE BASIC FUNCTIONALITY HERE ARE THE SECTION
 // THIS IS THE INITIAL JSON DATA FETCH
 // ---------------------------------------------------------------------------------------------
 
 const fetcher = async (s) => {
-  const response = await fetch(s);
-  
+	const response = await fetch(s);
+
 	if (!response.ok) {
-    throw Error("FETCH FOR DATA FAILED");
+		throw Error("FETCH FOR DATA FAILED");
 	}
 	const data = await response.json();
 	return data;
@@ -45,12 +44,10 @@ const uniqueArrayOfParties = () =>
 		? ["all"]
 		: Array.from(new Set(["all", ...data().objects.map((e) => e.party)]));
 
-
 const uniqueArrayOfStates = () =>
 	data() === "loading" || data() === false
 		? ["all"]
 		: Array.from(new Set(["all", ...data().objects.map((e) => e.state)]));
-
 
 const uniqueArrayOfRanks = () =>
 	data() === "loading" || data() === false
@@ -61,7 +58,7 @@ const uniqueArrayOfRanks = () =>
 const [partyValue, setPartyValue] = createSignal("all");
 const [stateValue, setStateValue] = createSignal("all");
 const [rankValue, setRankValue] = createSignal("all");
-
+const [searchBarValue, setSearchBarValue] = createSignal("");
 
 // THIS SECTION CONTAINS THE NUMBER OF DEMOCRATIC, REPUBLICAN AND INDEPENDENT SENATORS DERIVED FROM THE DATA
 // ---------------------------------------------------------------------------------------------
@@ -75,12 +72,10 @@ const numberOfRepublicanSenators = () =>
 const numberOfIndependentSenators = () =>
 	data() === "loading" || data() === false ? 0 : data().objects.filter((e) => e.party == "Independent").length;
 
-
 // THE NEXT IS THE LIST OF SENATORS WITH LEADERSHIP ROLLS INCLUDING
 // THEIR NAME, PARTY AND ROLE
 // IT ALSO HAS AN OBJECT CONTAINING THE PARTIES WITH A LIST OF STRINGS CONTAINING THE ROLE AND NAME
 // ---------------------------------------------------------------------------------------------
-
 
 const listOfSenatorsWithLeadershipRollsWithNameAndParty = () =>
 	data() === "loading" || data() === false
@@ -93,7 +88,6 @@ const listOfSenatorsWithLeadershipRollsWithNameAndParty = () =>
 					name: `${leadershipSenator.person.firstname} ${leadershipSenator.person.lastname}`,
 				}));
 
-
 const objectOfSenatorsNamesAndLeadershipRollByParty = () =>
 	listOfSenatorsWithLeadershipRollsWithNameAndParty().reduce((outputObject, currentObject) => {
 		outputObject[currentObject.party] =
@@ -104,10 +98,8 @@ const objectOfSenatorsNamesAndLeadershipRollByParty = () =>
 		return outputObject;
 	}, {});
 
-
-
 // NEXT IS THE REQUIRED DATA FOR THE TABLE
-// WE HAVE THE DATA BEFORE FILTERING WHICH CONTAINS ALL SENATORS IN THE FORMAT FOR THE TABLE 
+// WE HAVE THE DATA BEFORE FILTERING WHICH CONTAINS ALL SENATORS IN THE FORMAT FOR THE TABLE
 // AND THEN WE HAVE THE DATA FILTERED USING THE VALUES FROM EARLIER THAT ARE BOUND TO THE SELECT COMPONENTS
 // ---------------------------------------------------------------------------------------------
 
@@ -123,14 +115,15 @@ const dataForTableBeforeFiltering = () =>
 				osid: e.person.osid,
 		  }));
 
-
-
 const filteredDataForTable = () => {
-	const [party, state, rank] = [partyValue(), stateValue(), rankValue()];
+	const [party, state, rank, search] = [partyValue(), stateValue(), rankValue(), searchBarValue()];
 	return dataForTableBeforeFiltering()
 		.filter((e) => (party === "all" ? true : party === e.party))
 		.filter((e) => (state === "all" ? true : state === e.state))
-		.filter((e) => (rank === "all" ? true : rank === e.rank));
+		.filter((e) => (rank === "all" ? true : rank === e.rank))
+		.filter((e) =>
+			search === "" ? true : Object.values(e).join(",").toLowerCase().includes(search.toLowerCase())
+		);
 };
 
 //this did not work and I need to figure out why. think its to do with nesting
@@ -140,7 +133,7 @@ const filteredDataForTable = () => {
 //     .filter((e) => (stateValue() === "all" ? true : stateValue() === e.state))
 //     .filter((e) => (rankValue() === "all" ? true : rankValue() === e.rank));
 
-// FINALLY WE HAVE POPUP DISPLAY SETTINGS WHICH IS ITS OWN SIGNAL CONTAINING A BOOLEAN FOR 
+// FINALLY WE HAVE POPUP DISPLAY SETTINGS WHICH IS ITS OWN SIGNAL CONTAINING A BOOLEAN FOR
 // OPEN : TRUE
 // OSID: REFERENCE TO THE SENATOR
 // POPUPDATA() IS THE DATA USED IN THE POPUP AND IS RETRIEVED USING OSID OF THE SENATOR
@@ -150,8 +143,6 @@ const [popupDisplaySettings, setPopupDisplaySettings] = createSignal({
 	open: false,
 	osid: "",
 });
-
-
 
 const popupData = () =>
 	data() === "loading" || data() === false
@@ -182,6 +173,7 @@ export {
 	setPartyValue,
 	setStateValue,
 	setRankValue,
+	setSearchBarValue,
 	popupData,
 	popupDisplaySettings,
 	setPopupDisplaySettings,

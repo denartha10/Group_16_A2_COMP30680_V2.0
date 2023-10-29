@@ -5,6 +5,8 @@ import LeadershipRollsSection from "./lib/LeadershipRollsSectionComponent.mjs";
 import CustomSelect from "./lib/SelectComponent.mjs";
 import TableComponent from "./lib/TableComponent.mjs";
 import PopupComponent from "./lib/PopupComponent.mjs";
+import CardsGridComponent from "./lib/CardsGridComponent.mjs";
+import SearchBar from "./lib/SearchBarComponent.mjs";
 
 import {
 	uniqueArrayOfParties,
@@ -13,14 +15,15 @@ import {
 	setPartyValue,
 	setStateValue,
 	setRankValue,
+	setSearchBarValue,
 } from "./dataStore.mjs";
-
 
 // CREATE TABLE SECTION USING CREATEELEMENT AND CUSTOM COMPONENTS
 const tableSection = createElement(
 	"section",
 	{ id: "tablesection" },
 	createElement("h2", {}, "Table of Senators"),
+	createElement("div", {}, SearchBar(setSearchBarValue)),
 	createElement(
 		"div",
 		{},
@@ -36,7 +39,7 @@ const tableSection = createElement(
 		}),
 		CustomSelect(uniqueArrayOfRanks, { nameAndID: "ranks", classList: ["customselect"], bindValue: setRankValue })
 	),
-	TableComponent()
+	CardsGridComponent()
 );
 
 // ADD SECTION TO THE BODY
