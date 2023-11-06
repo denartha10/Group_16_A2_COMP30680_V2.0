@@ -1,37 +1,28 @@
 import { createEffect, createElement } from "../../fógraJS/index.mjs";
-import { objectOfSenatorsNamesAndLeadershipRollByParty } from "../dataStore.mjs";
+import { 
+	listOfSenatorsWithLeadershipRollsWithNameAndParty,
+} from "../dataStore.mjs";
 
-const leaderShipPositionLists = () =>
-	Object.entries(objectOfSenatorsNamesAndLeadershipRollByParty()).map(([party, objectOfRolesNames]) =>
+const leaderShipPositionLists = () => listOfSenatorsWithLeadershipRollsWithNameAndParty().map(leader => 
 		createElement(
-			"div",
-			{},
-			createElement("h3", { classList: "leader-party" }, party),
-			createElement(
-				"div",
-				{ classList: ["leadership-parties"] },
-				...Object.entries(objectOfRolesNames).map(([role, name]) =>
-					createElement(
-						"div",
-						{ classList: ["leader"] },
-						createElement("div", { classList: "leader-card leader-front" }, role),
-						createElement("div", { classList: "leader-card leader-back" }, name)
-					)
-				)
-			)
+			"div", 
+			{
+				 classList: ["leader"],
+			},
+			createElement("div", { classList: "leader-card leader-front" }, leader.role),
+			createElement("div", { classList: `leader-card leader-back ${leader.party.toLowerCase()}` }, leader.name)
 		)
-	);
+	)
+
+
 
 export default function LeadershipRollsSection() {
-	const leadershipRollsSection = createElement("section", {
-		id: "LeadershipRolls",
-	});
+	const leadershipParties = createElement("div", { classList: ["leadership-parties"] }, )
 
 	createEffect(() => {
-		leadershipRollsSection.innerHTML = "";
-		leadershipRollsSection.append(createElement("h2", {}, "Leadership Rolls"), ...leaderShipPositionLists());
-		objectOfSenatorsNamesAndLeadershipRollByParty();
+		leadershipParties.innerHTML = "";
+		leadershipParties.append(...leaderShipPositionLists());
 	});
 
-	return leadershipRollsSection;
+	return createElement("section", {id: "LeadershipRolls",}, createElement("h2", {}, "Leadership Rolls"), leadershipParties);
 }

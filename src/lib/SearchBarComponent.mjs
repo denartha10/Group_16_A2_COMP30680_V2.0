@@ -1,4 +1,4 @@
-import { createElement } from "../../fógraJS/index.mjs";
+import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
 export default function SearchBar(bindValue) {
 	const input = createElement("input", {

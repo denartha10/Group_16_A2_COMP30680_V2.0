@@ -78,19 +78,17 @@ section {
 
 .leadership-parties {
 	display: grid;
-	/* grid-template-columns: repeat(1, 150fr); */
+	grid-template-columns: repeat(3, 1fr); 
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 16px;
+	gap: 2rem;
+	padding: 2rem;
 }
 
 .leader {
-	padding: 0px 200px;
 	color: #fff;
 	perspective: 1000px;
-	position: relative;
-	width: 100px;
 	height: 200px;
 }
 
@@ -114,6 +112,14 @@ section {
 
 .leader-back {
 	transform: rotateX(180deg);
+}
+
+.leader-back.democrat{
+	border: 2px solid #00aef3;
+}
+
+.leader-back.republican{
+	border: 2px solid #e23b46;
 }
 
 .leader:hover .leader-front {
@@ -350,4 +356,15 @@ input {
 	border-right: var(--size) solid transparent;
 	border-top: var(--size) solid black;
 	top: 55%;
+}
+
+@media screen and (max-width: 1024px){
+	.leadership-parties{
+		grid-template-columns: repeat(2, 1fr); 
+	}
+}
+@media screen and (max-width: 768px){
+	.leadership-parties{
+		grid-template-columns: repeat(1, 1fr); 
+	}
 }

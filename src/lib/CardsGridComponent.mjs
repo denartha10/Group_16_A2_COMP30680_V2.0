@@ -9,7 +9,10 @@ export default function CardsGridComponent() {
 			? filteredDataForTable().map((senData) =>
 					createElement(
 						"div",
-						{ classList: `senator-card ${senData.party.toLowerCase()}` },
+						{ 
+							classList: `senator-card ${senData.party.toLowerCase()}`,
+							id: senData.osid
+						},
 						createElement(
 							"div",
 							{ classList: "senator-card-pic" },

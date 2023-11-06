@@ -86,6 +86,7 @@ const listOfSenatorsWithLeadershipRollsWithNameAndParty = () =>
 					party: leadershipSenator.party,
 					role: leadershipSenator.leadership_title,
 					name: `${leadershipSenator.person.firstname} ${leadershipSenator.person.lastname}`,
+					osid: leadershipSenator.person.osid
 				}));
 
 const objectOfSenatorsNamesAndLeadershipRollByParty = () =>
