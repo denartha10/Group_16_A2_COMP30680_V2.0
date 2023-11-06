@@ -92,8 +92,8 @@ const objectOfSenatorsNamesAndLeadershipRollByParty = () =>
 	listOfSenatorsWithLeadershipRollsWithNameAndParty().reduce((outputObject, currentObject) => {
 		outputObject[currentObject.party] =
 			outputObject[currentObject.party] !== undefined
-				? [...outputObject[currentObject.party], `${currentObject.role} : ${currentObject.name}`]
-				: [];
+				? { ...outputObject[currentObject.party], [currentObject.role]: currentObject.name }
+				: { [currentObject.role]: currentObject.name };
 
 		return outputObject;
 	}, {});
@@ -113,6 +113,7 @@ const dataForTableBeforeFiltering = () =>
 				gender: e.person.gender,
 				rank: e.senator_rank_label,
 				osid: e.person.osid,
+				pic: `https://www.govtrack.us/static/legislator-photos/${e.person.link.slice(-6)}-200px.jpeg`
 		  }));
 
 const filteredDataForTable = () => {

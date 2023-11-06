@@ -2,9 +2,9 @@ import { numberOfDemocraticSenators, numberOfIndependentSenators, numberOfRepubl
 import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
 export default function SenatorNumberSection() {
-	const h3Democrats = createElement("h3", {}, `Democrats : ${numberOfDemocraticSenators()}`);
-	const h3Republicans = createElement("h3", {}, `Republicans : ${numberOfRepublicanSenators()}`);
-	const h3Independents = createElement("h3", {}, `Independents : ${numberOfIndependentSenators()}`);
+	const h3Democrats = createElement("h3", {classList: ["party"]}, `Democrats : ${numberOfDemocraticSenators()}`);
+	const h3Republicans = createElement("h3", {classList: ["party"]}, `Republicans : ${numberOfRepublicanSenators()}`);
+	const h3Independents = createElement("h3", {classList: ["party"]}, `Independents : ${numberOfIndependentSenators()}`);
 
 	createEffect(() => {
 		h3Democrats.innerText = `Democrats : ${numberOfDemocraticSenators()}`;
@@ -15,7 +15,7 @@ export default function SenatorNumberSection() {
 	return createElement(
 		"section",
 		{ id: "NoInParty" },
-		createElement("h2", {}, "Number in Parties"),
+		createElement("h2", {}, "Number of Senators in each Party"),
 		h3Democrats,
 		h3Republicans,
 		h3Independents

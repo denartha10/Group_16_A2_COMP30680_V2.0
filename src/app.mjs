@@ -3,7 +3,6 @@ import { createElement } from "../fógraJS/index.mjs";
 import SenatorNumberSection from "./lib/SenatorNumberSectionComponent.mjs";
 import LeadershipRollsSection from "./lib/LeadershipRollsSectionComponent.mjs";
 import CustomSelect from "./lib/SelectComponent.mjs";
-import TableComponent from "./lib/TableComponent.mjs";
 import PopupComponent from "./lib/PopupComponent.mjs";
 import CardsGridComponent from "./lib/CardsGridComponent.mjs";
 import SearchBar from "./lib/SearchBarComponent.mjs";
@@ -23,10 +22,10 @@ const tableSection = createElement(
 	"section",
 	{ id: "tablesection" },
 	createElement("h2", {}, "Table of Senators"),
-	createElement("div", {}, SearchBar(setSearchBarValue)),
+	createElement("div", {classList: "filter-boxes"}, SearchBar(setSearchBarValue)),
 	createElement(
 		"div",
-		{},
+		{classList: "filter-boxes"},
 		CustomSelect(uniqueArrayOfParties, {
 			nameAndID: "party",
 			classList: ["customselect"],
@@ -46,9 +45,18 @@ const tableSection = createElement(
 document
 	.getElementById("root")
 	.append(
-		createElement("h1", {}, "Us Senators"),
-		SenatorNumberSection(),
-		LeadershipRollsSection(),
+		createElement(
+			"header",
+			{ classList: ["hero"] },
+			createElement("h1", {}, "Welcome to the U.S. Senators Directory"),
+			createElement(
+				"p",
+				{},
+				"Get to know the distinguished members of the United States Senate. Discover their affiliations, leadership roles, and more."
+			)
+		), // done
+		SenatorNumberSection(), //done
+		LeadershipRollsSection(), // done
 		PopupComponent(),
 		tableSection
 	);
