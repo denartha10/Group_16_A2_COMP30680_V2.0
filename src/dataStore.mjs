@@ -101,6 +101,9 @@ const uniqueArrayOfRanks = () =>
 		? ["all"]
 		: Array.from(new Set(["all", ...data().objects.map((e) => e.senator_rank_label)]));
 
+
+
+
 /**
  * Creates a signal for the currently selected party.
  *
@@ -145,6 +148,8 @@ const [rankValue, setRankValue] = createSignal("all");
  */
 const [searchBarValue, setSearchBarValue] = createSignal("");
 
+
+
 /**
  * Returns the number of democratic senators.
  *
@@ -181,6 +186,8 @@ const numberOfRepublicanSenators = () =>
 const numberOfIndependentSenators = () =>
 	data() === "loading" || data() === false ? 0 : data().objects.filter((e) => e.party == "Independent").length;
 
+
+
 /**
  * @typedef {Object} LeadershipData
  * @property {string} party - The party of the senator.
@@ -190,6 +197,7 @@ const numberOfIndependentSenators = () =>
  */
 
 /**
+ * 
  * This signal returns an array of leadership data for the leadership section.
  *
  * @variable
@@ -302,8 +310,6 @@ const popupData = () =>
 					youtubeId: e.person?.youtubeid ?? "Not available/None",
 					websiteLink: e.website,
 				}))[0];
-
-// ---------------------------------------------------------------------------------------------
 
 export {
 	// For the select dropdowns

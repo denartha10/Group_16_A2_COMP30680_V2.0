@@ -16,8 +16,8 @@ export default function CardsGridComponent() {
 	const tableGrid = createElement("div", { classList: "table-grid" });
 
 	const gridItemList = () =>
-		filteredDataForTable().length > 0
-			? filteredDataForTable().map((senData) =>
+		filteredData().length > 0
+			? filteredData().map((senData) =>
 					createElement(
 						"div",
 						{

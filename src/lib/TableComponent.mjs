@@ -1,21 +1,30 @@
-import { filteredDataForTable, setPopupDisplaySettings } from "../dataStore.mjs";
+import { filteredData, setPopupDisplaySettings } from "../dataStore.mjs";
 import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
+/**
+ * Creates a table HTML element with dynamic data.
+ *
+ * This function uses the `createEffect` function to update the table whenever the data changes.
+ *
+ * @function 
+ * @name TableComponent
+ * @returns {HTMLElement} The created table HTML element.
+ */
 export default function TableComponent() {
   const table = createElement("table", { id: "governorTable", onrowclick: () => console.log("hey")  });
   const tableHead = createElement("thead", {});
   const tableBody = createElement("tbody", {});
 
   const thList = () =>
-    filteredDataForTable().length > 0
-      ? Object.keys(filteredDataForTable()[0]).map((k) =>
+    filteredData().length > 0
+      ? Object.keys(filteredData()[0]).map((k) =>
           createElement("th", {}, k)
         )
       : [];
 
   const trList = () =>
-    filteredDataForTable().length > 0
-      ? filteredDataForTable().map((trRowObject) =>
+    filteredData().length > 0
+      ? filteredData().map((trRowObject) =>
           createElement(
             "tr",
             {
@@ -33,7 +42,7 @@ export default function TableComponent() {
   tableBody.append(...trList());
 
   createEffect(() => {
-    filteredDataForTable();
+    filteredData();
     tableHead.innerHTML = "";
     tableBody.innerHTML = "";
     tableHead.append(...thList());
