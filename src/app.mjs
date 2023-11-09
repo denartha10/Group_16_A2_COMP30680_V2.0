@@ -15,6 +15,7 @@ import {
 	setStateValue,
 	setRankValue,
 	setSearchBarValue,
+	searchBarValue
 } from "./dataStore.mjs";
 
 // CREATE TABLE SECTION USING CREATEELEMENT AND CUSTOM COMPONENTS
@@ -22,7 +23,7 @@ const tableSection = createElement(
 	"section",
 	{ id: "tablesection" },
 	createElement("h2", {}, "Table of Senators"),
-	createElement("div", {classList: "filter-boxes"}, SearchBar(setSearchBarValue)),
+	createElement("div", {classList: "filter-boxes"}, SearchBar(searchBarValue,setSearchBarValue)),
 	createElement(
 		"div",
 		{classList: "filter-boxes"},

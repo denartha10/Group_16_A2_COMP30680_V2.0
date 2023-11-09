@@ -1,6 +1,17 @@
-import { filteredDataForTable, setPopupDisplaySettings } from "../dataStore.mjs";
+import { filteredData, setPopupDisplaySettings } from "../dataStore.mjs";
 import { createEffect, createElement } from "../../fógraJS/index.mjs";
 
+/**
+ * Creates a grid of card components using the filteredData internally.
+ *
+ * This function creates a grid of card components, each containing information about a senator.
+ * The cards use the filteredData internally and can set values for the popup display.
+ * The function has no arguments but returns an HTML div containing the cards.
+ *
+ * @function
+ * @name CardsGridComponent
+ * @returns {HTMLElement} The div element containing the grid of card components.
+ */
 export default function CardsGridComponent() {
 	const tableGrid = createElement("div", { classList: "table-grid" });
 
@@ -9,20 +20,17 @@ export default function CardsGridComponent() {
 			? filteredDataForTable().map((senData) =>
 					createElement(
 						"div",
-						{ 
+						{
 							classList: `senator-card ${senData.party.toLowerCase()}`,
-							id: senData.osid
+							id: senData.osid,
 						},
 						createElement(
 							"div",
 							{ classList: "senator-card-pic" },
-							createElement(
-								"img",
-								{
-									src: senData.pic,
-									alt: `Picture of ${senData.name}`,
-								}
-							)
+							createElement("img", {
+								src: senData.pic,
+								alt: `Picture of ${senData.name}`,
+							})
 						),
 						createElement(
 							"div",
@@ -33,15 +41,12 @@ export default function CardsGridComponent() {
 								{ classList: "senator-card-details-sub" },
 								createElement("p", {}, senData.rank),
 								createElement("p", {}, senData.state),
-								createElement(
-									"div",
-									{
-										classList: "more-info",
-										onclick: () => {
-											setPopupDisplaySettings({ open: true, osid: senData.osid });
-										},
-									}
-								)
+								createElement("div", {
+									classList: "more-info",
+									onclick: () => {
+										setPopupDisplaySettings({ open: true, osid: senData.osid });
+									},
+								})
 							)
 						)
 					)
@@ -51,7 +56,6 @@ export default function CardsGridComponent() {
 	tableGrid.append(...gridItemList());
 
 	createEffect(() => {
-		filteredDataForTable();
 		tableGrid.innerHTML = "";
 		tableGrid.append(...gridItemList());
 	});

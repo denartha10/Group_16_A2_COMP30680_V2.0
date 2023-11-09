@@ -63,8 +63,3 @@ function createResource(source, fetcher) {
 }
 
 export { createSignal, createEffect, createResource };
-
-// apparently fetch if passed a blank string returns an ok response?
-// weird
-// const [source, setSource] = createSignal('');
-// const [data] = createResource(source, fetch);
