@@ -46,7 +46,7 @@ const fetcher = async (s) => {
  * @name source
  * @type {[SignalGetter<string>, SignalSetter<string>]}
  */
-const [source, _] = createSignal("../datasource/senators.json");
+const [source, _] = createSignal("./datasource/senators.json");
 
 /**
  * Creates a resource for the data.

@@ -51,6 +51,7 @@ function createResource(source, fetcher) {
 			const data = await fetcher(source());
 			setValue(data);
 		} catch (error) {
+			console.error(`Error in fetch function: ${source()} could not be found`)
 			setValue(false);
 		}
 	}
