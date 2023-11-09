@@ -1,370 +1,368 @@
 @font-face {
-	font-family: "Roboto";
-	src: url(./Roboto-Regular.ttf);
+  font-family: "Roboto";
+  src: url(./Roboto-Regular.ttf);
 }
 
 body {
-	font-family: "Roboto", sans-serif;
-	padding: 0;
-	margin: 0;
-	font-size: 1.2rem;
-	background-color: #f4f6f7;
-	background-color: #1a1a1d;
-	color: white;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  background-color: #f4f6f7;
+  background-color: #1a1a1d;
+  color: white;
 }
 
 h1 {
-	text-align: center;
-	margin: 0;
-	color: white;
+  text-align: center;
+  margin: 0;
+  color: white;
 }
 
 header {
-	background-color: #094d71;
-	background-color: #161618;
-	padding: 2rem;
+  background-color: #094d71;
+  background-color: #161618;
+  padding: 2rem;
 }
 
 h2 {
-	/* border-bottom: 1px solid #caced1; */
-	padding-bottom: 0.5rem;
-	color: #f4f6f7;
-	/* color: #094260; */
+  /* border-bottom: 1px solid #caced1; */
+  padding-bottom: 0.5rem;
+  color: #f4f6f7;
+  /* color: #094260; */
 }
 
 h3 {
-	/* color: #094260; */
-	color: #f4f6f7;
+  /* color: #094260; */
+  color: #f4f6f7;
 }
 section {
-	padding: 2rem;
+  padding: 2rem;
 }
 
 .hero {
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #NoInParty {
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #NoInParty > h2 {
-	color: #337ab7;
+  color: #337ab7;
 }
 .party {
-	text-transform: capitalize;
-	color: #337ab7;
+  text-transform: capitalize;
+  color: #161618;
 }
 
 #LeadershipRolls {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #LeadershipRolls h2 {
-	text-align: center;
+  text-align: center;
 }
 
 .leader-party {
-	text-align: center;
+  text-align: center;
 }
 
 .leadership-parties {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr); 
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .leader {
-	color: #fff;
-	perspective: 1000px;
-	height: 200px;
+  color: #fff;
+  perspective: 1000px;
+  height: 200px;
 }
 
 .leader-card {
-	/* background-color: white; */
-	color: #161618;
-	color: #fff;
-	text-align: center;
-	border: 2px solid white;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	backface-visibility: hidden;
-	transition: transform 1.5s;
+  /* background-color: white; */
+  color: #161618;
+  color: #fff;
+  text-align: center;
+  border: 2px solid white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transition: transform 1.5s;
 }
 
 .leader-back {
-	transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
-.leader-back.democrat{
-	border: 2px solid #00aef3;
+.leader-back.democrat {
+  border: 2px solid #00aef3;
 }
 
-.leader-back.republican{
-	border: 2px solid #e23b46;
+.leader-back.republican {
+  border: 2px solid #e23b46;
 }
 
 .leader:hover .leader-front {
-	transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 
 .leader:hover .leader-back {
-	transform: rotateX(0);
+  transform: rotateX(0);
 }
 
 .table-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	gap: 16px;
-	padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 2rem;
 }
 
 .senator-card-pic,
 .senator-card-pic > img {
-  //border-radius: 1rem 1rem 0 0;
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .senator-card {
-	background-color: #161618;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  border-radius-top: 1rem;
-	transition: transform 0.1s ease-in-out;
+  background-color: #161618;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease-in-out;
 }
 .senator-card:hover {
-	transform: scale(1.025);
+  transform: scale(1.025);
 }
 .senator-card-pic > img {
-	object-fit: cover;
+  object-fit: cover;
 }
 .senator-card-details {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
 }
 .senator-card-details-sub {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 .senator-card-details > h4 {
-	font-weight: 400;
+  font-weight: 400;
 }
 .senator-card-details .senator-card-details-sub {
-	color: #cacaca;
-	font-style: italic;
+  color: #cacaca;
+  font-style: italic;
 }
 .senator-card-details-sub > p,
 .senator-card-details > h4 {
-	margin: 0;
+  margin: 0;
 }
 
 .republican {
-	/* border-left: 4px solid red; */
-	border-bottom: 4px solid #e23b46;
+  /* border-left: 4px solid red; */
+  border-bottom: 4px solid #e23b46;
 }
 
 .democrat {
-	border-bottom: 4px solid #00aef3;
+  border-bottom: 4px solid #00aef3;
 }
 
 .independent {
-	border-bottom: 4px solid gray;
+  border-bottom: 4px solid gray;
 }
 
 .more-info {
-	background-image: url(./info.svg);
-	width: 2rem;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
+  background-image: url(./info.svg);
+  width: 2rem;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .more-info:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #floating {
-	background-color: #161618;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: #fff;
-	border-radius: 5px;
-	padding: 20px;
-	z-index: 100;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	min-width: 300px;
-	min-height: 300px;
+  background-color: #161618;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  min-width: 300px;
+  min-height: 300px;
 }
 
 #floatingBack {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background-color: rgba(255, 255, 255, 0.169);
-	z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.169);
+  z-index: 99;
 }
 
 #tablesection {
-	margin-top: 20px;
-	text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .filter-boxes {
-	display: flex;
-	justify-content: space-between;
-	gap: 4rem;
-	margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 1rem;
 }
 
 #tablesection table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 1px solid #caced1;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #caced1;
 }
 
 #tablesection table td,
 #tablesection table th {
-	text-align: center;
-	padding: 0.5rem;
-	border: 1px solid #caced1;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid #caced1;
 }
 
 #tablesection table th {
-	background-color: #caced1;
+  background-color: #caced1;
 }
 
 #tablesection table tr:hover {
-	background-color: #caced1;
-	cursor: pointer;
+  background-color: #caced1;
+  cursor: pointer;
 }
 
 /* STOLEN FROM https://blog.logrocket.com/creating-custom-select-dropdown-css/ */
 /* All select and .custom-select stuff */
 
 select {
-	appearance: none;
-	/*  safari  */
-	-webkit-appearance: none;
-	/*  other styles for aesthetics */
-	width: 100%;
-	font-size: 1.15rem;
-	padding: 0.675rem 6rem 0.675rem 1rem;
-	border: 1px solid #caced1;
-	border-radius: 0.25rem;
-	cursor: pointer;
-	background-color: #161618;
-	color: white;
+  appearance: none;
+  /*  safari  */
+  -webkit-appearance: none;
+  /*  other styles for aesthetics */
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675rem 6rem 0.675rem 1rem;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: #161618;
+  color: white;
 }
 
 .custom-select {
-	min-width: 350px;
-	position: relative;
+  min-width: 350px;
+  position: relative;
 }
 
 .custom-select::before,
 .custom-select::after {
-	--size: 0.3rem;
-	content: "";
-	position: absolute;
-	right: 1rem;
-	pointer-events: none;
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
 }
 
 .custom-select::before {
-	border-left: var(--size) solid transparent;
-	border-right: var(--size) solid transparent;
-	border-bottom: var(--size) solid black;
-	top: 40%;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
 }
 
 .custom-select::after {
-	border-left: var(--size) solid transparent;
-	border-right: var(--size) solid transparent;
-	border-top: var(--size) solid black;
-	top: 55%;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
 }
 
 /* SEARCH BAR */
 input {
-	appearance: none;
-	-webkit-appearance: none;
-	width: 100%;
-	font-size: 1.15rem;
-	padding: 0.675em 6em 0.675em 1em;
-	background-color: transparent;
-	border: 1px solid #caced1;
-	border-radius: 0.25rem;
-	color: #fff;
-	cursor: pointer;
-	margin-bottom: 2rem;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: transparent;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .custom-input {
-	min-width: 350px;
-	position: relative;
+  min-width: 350px;
+  position: relative;
 }
 
 .custom-input::before,
 .custom-input::after {
-	--size: 0.3rem;
-	content: "";
-	position: absolute;
-	right: 1rem;
-	pointer-events: none;
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
 }
 
 .custom-input::before {
-	border-left: var(--size) solid transparent;
-	border-right: var(--size) solid transparent;
-	border-bottom: var(--size) solid black;
-	top: 40%;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
 }
 
 .custom-input::after {
-	border-left: var(--size) solid transparent;
-	border-right: var(--size) solid transparent;
-	border-top: var(--size) solid black;
-	top: 55%;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
 }
 
-@media screen and (max-width: 1024px){
-	.leadership-parties{
-		grid-template-columns: repeat(2, 1fr); 
-	}
+@media screen and (max-width: 1024px) {
+  .leadership-parties {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media screen and (max-width: 768px){
-	.leadership-parties{
-		grid-template-columns: repeat(1, 1fr); 
-	}
+@media screen and (max-width: 768px) {
+  .leadership-parties {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
